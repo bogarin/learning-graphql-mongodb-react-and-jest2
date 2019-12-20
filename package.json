@@ -7,7 +7,7 @@
     "build": "babel src -d dist --source-maps",
     "start": "node dist/server.js",
     "watch": "nodemon --exec babel-node --ignore dist --ignore tests src/server.js",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "test:watch":"yarn test --watchAll",
     "test:coverage":"yarn test --coverage",
     "clean:dist": "rimraf  dist",
