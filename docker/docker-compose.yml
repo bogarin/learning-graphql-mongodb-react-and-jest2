@@ -1,0 +1,35 @@
+
+version: '3'
+services:
+  mongo:
+    image: mongo
+    container_name: container_mongo
+    restart: always
+    ports:  
+      - 1717:27017
+    volumes:
+      - ./mongo/dataMongoDB:/data/db/
+    networks:
+      - app-network
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+  
+  mongo-express:
+    image: mongo-express
+    container_name: container_mexpress
+    restart: always
+    ports:
+      - 8888:8081
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+
+networks: 
+  app-network:
+    driver: bridge
+    

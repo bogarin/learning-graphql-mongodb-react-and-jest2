@@ -1,0 +1,37 @@
+{
+  "name": "learning-graphql-mongodb-react-and-jest2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d dist --source-maps",
+    "start": "node dist/server.js",
+    "watch": "nodemon --exec babel-node --ignore dist --ignore tests src/server.js",
+    "test": "jest",
+    "test:watch":"yarn test --watchAll",
+    "test:coverage":"yarn test --coverage",
+    "clean:dist": "rimraf  dist",
+    "clean:coverage":"rimraf coverage",
+    "clean:all":"yarn clean:dist && yarn clean:coverage"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8",
+    "graphql-import": "^0.7.1",
+    "graphql-tools": "^4.0.6",
+    "mongoose": "^5.8.0",
+    "rimraf": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
+    "babel-jest": "^24.9.0",
+    "faker": "^4.1.0",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.2"
+  }
+}
